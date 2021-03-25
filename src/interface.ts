@@ -1,0 +1,1 @@
+export interface IPuzzle { id: number, path: string; height: number; width: number; pieces: number;}
