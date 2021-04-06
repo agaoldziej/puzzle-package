@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import Puzzle from "react-image-puzzle";
+import Puzzle from "react-puzzle";
 import { Fragment } from "react";
 import {puzzles} from "./puzzle-images"
 import SizeSlider from "./slider"
