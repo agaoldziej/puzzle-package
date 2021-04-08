@@ -19,7 +19,7 @@ export default function SizeSlider(props: any) {
   return (
     <div className={classes.root}>
       <Typography id="discrete-slider" gutterBottom>
-        Puzzle size
+        Rozmiar puzli
       </Typography>
       <Slider
         defaultValue={4}
