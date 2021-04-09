@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import {puzzles} from "./puzzle-images"
 import SizeSlider from "./slider"
 import RandomButton from "./button"
+import Alert from "./Alert";
 
 
 function PuzzleGame() {
@@ -26,7 +27,7 @@ function PuzzleGame() {
   };
 
   const onComplete = () => {
-    //shuffleImage()
+    (alert({Alert}))
   };
 
   const shuffleImage = useCallback(() => {
@@ -45,9 +46,10 @@ function PuzzleGame() {
 
   return (
     <Fragment>
-       <RandomButton/>
-       <button onClick={shuffleImage}>Losuj Obrazek</button>
-       <SizeSlider handleChange={resize}/>
+      <div onClick={shuffleImage}>
+        <RandomButton />
+      </div>
+      <SizeSlider handleChange={resize}/>
       {showPuzzle && <Puzzle
         image={image}
         width={800}
