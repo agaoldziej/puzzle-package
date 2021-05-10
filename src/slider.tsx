@@ -27,7 +27,7 @@ export default function SizeSlider(props: any) {
         valueLabelDisplay="auto"
         step={1}
         marks
-        min={3}
+        min={2}
         max={10}
         onChange={(change: any, value: any) => props.handleChange(value)}
       />

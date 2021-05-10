@@ -1,33 +1,39 @@
-import React, {useState, useEffect, useCallback, } from "react"
-import Puzzle from "react-dnd-image-puzzle";
-import { Fragment } from "react";
+import React, {Fragment, useState, useEffect, useCallback, } from "react"
 import {puzzles} from "./puzzle-images"
 import SizeSlider from "./slider"
 import RandomButton from "./button"
-import Alert from "./Alert";
-
+import Puzzle from "react-image-puzzle";
+import TransitionsModal from './modal';
+import "./index";
 
 function PuzzleGame() {
   
   const [pieces, setPieces] = useState<number>(4);
   const [image, setImage] = useState<any>();
   const [showPuzzle, setShowPuzzle] = useState<any>(true);
+  const [done, setDone] = useState<boolean>(false);
 
   useEffect(() => {
     setShowPuzzle(false)
-  },[pieces]);
+  },[pieces,done]);
 
   useEffect(() => {
     setShowPuzzle(true)
   },[showPuzzle]);
 
+  useEffect(() => {
+    if (done===true) {
+      alert("Done")
+      setDone(false)
+    }
+  },[done]);
   const resize = (change: number) => {
     setPieces(change)
     
   };
 
   const onComplete = () => {
-    (alert({Alert}))
+    setDone(true)
   };
 
   const shuffleImage = useCallback(() => {
@@ -50,13 +56,12 @@ function PuzzleGame() {
         <RandomButton />
       </div>
       <SizeSlider handleChange={resize}/>
-      {showPuzzle && <Puzzle
+      {showPuzzle && <Puzzle 
         image={image}
-        width={800}
-        height={480}
-        pieces={pieces}
-        onComplete={onComplete}
-      />}
+        size={500}
+        level={pieces}
+        onDone={onComplete}
+       />}
     </Fragment>
     
   );
