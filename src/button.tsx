@@ -20,7 +20,6 @@ const style = {
     height: 48,
     padding: '0 30px',
     boxShadow: '0 3px 5px 2px #aeb1b8',
-    
   };
 
 export default function RandomButton(props: any) {
